@@ -6,7 +6,7 @@
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 20:03:41 by brtucker          #+#    #+#             */
-/*   Updated: 2018/09/17 20:05:17 by brtucker         ###   ########.fr       */
+/*   Updated: 2018/11/04 17:31:18 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_strclr(char *s)
 {
 	int len;
 
+	if (!s)
+		return ;
 	len = ft_strlen(s);
 	while (len--)
 		*s++ = '\0';

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlenf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 08:56:35 by brtucker          #+#    #+#             */
-/*   Updated: 2018/11/04 18:05:20 by brtucker         ###   ########.fr       */
+/*   Created: 2018/11/04 17:41:35 by brtucker          #+#    #+#             */
+/*   Updated: 2018/11/04 17:53:17 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlenf(const char *s, int (*f)(int c))
 {
-	char	*ptr;
+	size_t i;
 
-	ptr = (char *)s;
-	while (n--)
-		*ptr++ = 0;
+	i = 0;
+	while (s[i] && f(s[i]))
+		i++;
+	return (i);
 }

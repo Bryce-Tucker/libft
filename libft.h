@@ -6,7 +6,7 @@
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 08:20:35 by brtucker          #+#    #+#             */
-/*   Updated: 2018/10/11 18:15:58 by brtucker         ###   ########.fr       */
+/*   Updated: 2018/11/04 17:52:34 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ size_t			ft_wordcount(const char *str, char *delims);
 int				ft_instr(int c, char *str);
 size_t			ft_strlend(char *str, char *delims);
 size_t			ft_strlenuc(unsigned char *str, unsigned char c);
+size_t			ft_strlenf(const char *s, int (*f)(int c));
 size_t			ft_lstlen(t_list *lst);
 
 #endif

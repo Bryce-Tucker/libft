@@ -6,7 +6,7 @@
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 18:35:07 by brtucker          #+#    #+#             */
-/*   Updated: 2018/10/15 13:14:50 by brtucker         ###   ########.fr       */
+/*   Updated: 2018/11/04 17:28:55 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	return (ft_strcmp(s1, s2) == 0 ? 1 : 0);
+	return (s1 && s2 && ft_strcmp(s1, s2) == 0 ? 1 : 0);
 }

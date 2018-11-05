@@ -6,7 +6,7 @@
 #    By: brtucker <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/24 17:48:46 by brtucker          #+#    #+#              #
-#    Updated: 2018/10/10 11:21:35 by brtucker         ###   ########.fr        #
+#    Updated: 2018/11/04 17:45:18 by brtucker         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ FILES = ft_memset.c     \
 		ft_instr.c      \
 		ft_strlend.c    \
 		ft_strlenuc.c   \
+		ft_strlenf.c    \
 		ft_lstlen.c
 
 

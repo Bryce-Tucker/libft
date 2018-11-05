@@ -6,7 +6,7 @@
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 18:35:07 by brtucker          #+#    #+#             */
-/*   Updated: 2018/11/03 13:04:46 by brtucker         ###   ########.fr       */
+/*   Updated: 2018/11/04 17:25:31 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_strnequ(char const *s1, char const *s2, size_t len)
 {
-	return (len && ft_strncmp(s1, s2, len) ? 0 : 1);
+	return (s1 && s2 && len && ft_strncmp(s1, s2, len) ? 0 : 1);
 }
