@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlenuc.c                                      :+:      :+:    :+:   */
+/*   ft_strtrimd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/04 11:05:29 by brtucker          #+#    #+#             */
-/*   Updated: 2018/12/03 20:25:00 by brtucker         ###   ########.fr       */
+/*   Created: 2018/11/07 15:45:30 by brtucker          #+#    #+#             */
+/*   Updated: 2018/11/07 15:49:41 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlenuc(const char *str, char c)
+char	*ft_strtrimd(char const *s, char const *delims)
 {
-	size_t i;
+	int		i;
+	int		len;
+	char	*str;
 
+	if (!s)
+		return (NULL);
 	i = 0;
-	while (str[i] && str[i] != c)
+	len = ft_strlen(s);
+	while (ft_instr(s[i], (char *)delims) && s[i])
 		i++;
-	return (i);
+	if (!s[i])
+		return ("");
+	while (ft_instr(s[--len], (char *)delims))
+		;
+	len += 2;
+	if (!(str = (char *)malloc(sizeof(char) * (len - i))))
+		return (NULL);
+	str[--len - i] = '\0';
+	while (--len - i >= 0)
+		str[len - i] = s[len];
+	return (str);
 }

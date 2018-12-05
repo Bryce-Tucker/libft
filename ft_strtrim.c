@@ -6,7 +6,7 @@
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 20:14:26 by brtucker          #+#    #+#             */
-/*   Updated: 2018/10/11 18:34:57 by brtucker         ###   ########.fr       */
+/*   Updated: 2018/12/03 20:29:30 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,20 @@
 
 char	*ft_strtrim(char const *s)
 {
-	int		i;
-	int		b;
-	int		e;
-	char	*str;
+	char		*ret;
+	size_t		len;
+	size_t		start;
 
-	b = 0;
-	if (s == NULL || !(ft_strlen(s)))
-		return (s == NULL ? NULL : "");
-	while (s[b] == ' ' || s[b] == '\t' || s[b] == '\n')
-		b++;
-	i = b - 1;
-	if (!s[b])
-		return ("");
-	while (s[++i])
-	{
-		if (s[i] != ' ' && s[i] != '\t' && s[i] != '\n')
-			e = i;
-	}
-	if (!(str = (char *)malloc(sizeof(*s) * ((b == e ? 2 : e - b + 2)))))
+	start = 0;
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (b <= e)
-		str[i++] = s[b++];
-	str[i] = '\0';
-	return (str);
+	len = ft_strlen(s) - 1;
+	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
+		start++;
+	while ((s[len] == ' ' || s[len] == '\n' || s[len] == '\t') && len > 0)
+		len--;
+	if (s[start] == '\0')
+		return (ft_strnew(0));
+	ret = ft_strsub(s, start, len - start + 1);
+	return (ret);
 }

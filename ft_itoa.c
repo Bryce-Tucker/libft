@@ -6,7 +6,7 @@
 /*   By: brtucker <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 18:18:35 by brtucker          #+#    #+#             */
-/*   Updated: 2018/10/01 10:42:29 by brtucker         ###   ########.fr       */
+/*   Updated: 2018/12/03 20:53:11 by brtucker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		multi;
-	int		mod;
+	int		len;
+	int		sign;
+	char	*ret;
 
-	str = (char *)malloc(sizeof(char) * (ft_numlen(n) + 1));
-	if (!str)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	sign = 0;
+	len = ft_numlen(n) + 1;
+	sign = (n < 0 ? 1 : 0);
+	n = (n < 0 ? n *= -1 : n);
+	if (!(ret = (char*)malloc(sizeof(char) * len)))
 		return (NULL);
-	mod = (n < 0 ? -10 : 10);
-	multi = (n < 0 ? -10 : 10);
-	while (n % multi != n)
-		multi *= 10;
-	while (multi != 1 || multi != -1)
+	ret[--len] = '\0';
+	while (len--)
 	{
-		*str++ = ((n / (multi / 10)) % mod) + '0';
-		multi /= 10;
+		ret[len] = n % 10 + '0';
+		n = n / 10;
 	}
-	*str = '\0';
-	return (str);
+	if (sign)
+		ret[0] = '-';
+	return (ret);
 }
